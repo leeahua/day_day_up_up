@@ -40,7 +40,6 @@ public class HttpsClient {
 
     public void init(){
         try {
-
             SSLContext sslContext = SSLContext.getInstance("SSL");
             KeyManagerFactory keyManagerFactory = KeyManagerFactory.getInstance("SunX509");
             TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance("SunX509");
