@@ -37,7 +37,6 @@ public class HttpsClient {
         }
     }
 
-
     public void init(){
         try {
             SSLContext sslContext = SSLContext.getInstance("SSL");
