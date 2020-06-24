@@ -16,7 +16,7 @@ public class LongEventMain {
         //construct the Disruptor
         Disruptor<LongEvent> disruptor = new Disruptor<LongEvent>(factory,  bufferSize, DaemonThreadFactory.INSTANCE);
         //connect the Disruptor
-        disruptor.handleEventsWith(new LongEventHandler());
+        disruptor.handleEventsWith(new LongEventHandler(),new LongEventHandler2());
         //start the Disruptor, starts all threads running
         disruptor.start();
         RingBuffer<LongEvent> ringBuffer = disruptor.getRingBuffer();
@@ -24,8 +24,8 @@ public class LongEventMain {
         ByteBuffer byteBuffer = ByteBuffer.allocate(8);
         for(long l = 0; true; l++){
             byteBuffer.putLong(0,l);
-            ringBuffer.publishEvent(((longEvent, l1) -> longEvent.setValue(byteBuffer.getLong(0))));
-            //producer.onData(byteBuffer);
+            //ringBuffer.publishEvent(((longEvent, l1) -> longEvent.setValue(byteBuffer.getLong(0))));
+            producer.onData(byteBuffer);
             Thread.sleep(1000);
         }
     }
