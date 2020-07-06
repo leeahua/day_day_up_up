@@ -1,5 +1,7 @@
 package com.mqtt.netty;
 
+import io.netty.util.internal.StringUtil;
+
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
@@ -33,7 +35,10 @@ public class LearnConstructor {
             LearnConstructor.class.newInstance().Sayhello();
             Constructor constructor = learnConstractor.getClass().getConstructor(String.class);
             LearnConstructor newInstance = (LearnConstructor)constructor.newInstance("121212");
+            System.out.println(StringUtil.simpleClassName(constructor.getDeclaringClass()));
+            System.out.println();
             newInstance.Sayhello();
+
         } catch (NoSuchMethodException e) {
             e.printStackTrace();
         } catch (IllegalAccessException e) {
