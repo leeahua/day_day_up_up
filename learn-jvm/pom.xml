@@ -5,14 +5,26 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.learn</groupId>
-    <artifactId>learn_demo</artifactId>
+    <artifactId>learn-jvm</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>pom</packaging>
-    <modules>
-        <module>learn-jvm</module>
-        <module>mqtt-demo</module>
-        <module>learn-guice</module>
-    </modules>
+
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.2.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jgroups</groupId>
+            <artifactId>jgroups</artifactId>
+            <version>4.1.9.Final</version>
+        </dependency>
+    </dependencies>
     <build>
         <plugins>
             <plugin>
